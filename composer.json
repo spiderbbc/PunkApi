@@ -7,6 +7,7 @@
         "ext-iconv": "*",
         "doctrine/annotations": "^1.13",
         "friendsofsymfony/rest-bundle": "^3.2",
+        "guzzlehttp/guzzle": "^7.4",
         "symfony/console": "4.4.*",
         "symfony/dotenv": "4.4.*",
         "symfony/flex": "^1.3.1",
