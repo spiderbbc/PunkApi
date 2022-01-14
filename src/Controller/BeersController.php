@@ -8,8 +8,19 @@ use App\Entity\PunkApi;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\Annotations\QueryParam;
 
-class ListController extends AbstractController
+class BeersController extends AbstractController
 {
+
+    /**
+     * @Rest\Get("/beers", name="beers")
+     */
+    public function index(): Array
+    {
+        return [
+            'message' => 'Welcome to your new controller!',
+            'path' => 'src/Controller/BeersController.php',
+        ];
+    }
     /**
      * @Rest\Get(
      *      "/beers/search",
