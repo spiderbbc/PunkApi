@@ -8,14 +8,17 @@ class PunkApi
 {
     private $_base_uri = 'https://api.punkapi.com';
 
-    public function getBeersByParams($food){
-        $food = $this->formatString($food);
+    public function getBeersByParams($params): Array
+    {
+        $params = $this->_formatString($params);
+        
         $client = new ApiClient($this->_base_uri);
-        $data = $client->getByParams("/v2/beers",$food);
-        return json_decode($data, true);
+        $response = $client->getByParams("/v2/beers",$params);
+        return $response;
     }
 
-    public function formatString($str){
+    private function _formatString($str): string
+    {
         return preg_replace('/\s+/', '_', $str);
     }
 }

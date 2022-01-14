@@ -24,13 +24,13 @@ class ApiClient
      * 
      * @return mixed
      */ 
-    public function getByParams($endpoint,$params = [])
+    public function getByParams($endpoint,$params = []): Array
     {
         $response = $this->_client->request('GET', $endpoint,[
             'query' => $params
         ]);
         $response->getHeaderLine('application/json');
-        return $response->getStatusCode() == 200 ? $response->getBody() : [];
+        return $response->getStatusCode() == 200 ? json_decode($response->getBody()->getContents(),true) : [];
     }
     
 }
