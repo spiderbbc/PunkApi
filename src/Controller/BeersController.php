@@ -31,7 +31,8 @@ class BeersController extends AbstractController
     public function search(Request $request): Array
     {
         $client = new PunkApi();
-        $food = !is_null($request->query->get('food')) ? $request->query->get('food') : ' ' ;
+        $requestFood = !is_null($request->query->get('food')) ? $request->query->get('food') : ' ' ;
+        $food = $client->formatString($requestFood);
         $response = $client->getBeersByParams(['food' => $food]);
 
         $beers = (new BeersFormatter($response))->format('search');

@@ -10,14 +10,12 @@ class PunkApi
 
     public function getBeersByParams($params): Array
     {
-        $params = $this->_formatString($params);
-        
         $client = new ApiClient($this->_base_uri);
         $response = $client->getByParams("/v2/beers",$params);
         return $response;
     }
 
-    private function _formatString($str): string
+    public function formatString($str):string
     {
         return preg_replace('/\s+/', '_', $str);
     }

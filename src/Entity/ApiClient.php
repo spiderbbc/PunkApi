@@ -4,6 +4,10 @@ namespace App\Entity;
 
 use GuzzleHttp\Client;
 
+/**
+ * ApiClient: envelope class for requests using guzzle library
+ *
+ */ 
 class ApiClient
 {
     private $_client;
